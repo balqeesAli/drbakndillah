@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879911352936",
+    "project_id": "drbak-ndillah-8d4d8",
+    "storage_bucket": "drbak-ndillah-8d4d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879911352936:android:bded5abca5fe9079cfd9dd",
+        "android_client_info": {
+          "package_name": "io.drbakndillah.om"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879911352936-4mvk2r5hc544d92vgmt1l7j5f3fv810u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpsd4q9o3SS_GzdQ35packG7MfnaUU-Ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879911352936-4mvk2r5hc544d92vgmt1l7j5f3fv810u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

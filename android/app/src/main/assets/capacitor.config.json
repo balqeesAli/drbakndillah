@@ -1,0 +1,15 @@
+{
+	"appId": "io.drbakndillah.om",
+	"appName": "دربك ندله",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		}
+	}
+}

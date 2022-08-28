@@ -1,0 +1,12 @@
+com/capacitorjs/plugins/browser/EventGroup.java
+ com.capacitorjs.plugins.browser.EventGroup
+ com.capacitorjs.plugins.browser.EventGroup$EventGroupCompletion
+com/capacitorjs/plugins/browser/BuildConfig.java
+ com.capacitorjs.plugins.browser.BuildConfig
+com/capacitorjs/plugins/browser/BrowserPlugin.java
+ com.capacitorjs.plugins.browser.BrowserPlugin
+com/capacitorjs/plugins/browser/Browser.java
+ com.capacitorjs.plugins.browser.Browser
+ com.capacitorjs.plugins.browser.Browser$1
+ com.capacitorjs.plugins.browser.Browser$2
+ com.capacitorjs.plugins.browser.Browser$BrowserEventListener
