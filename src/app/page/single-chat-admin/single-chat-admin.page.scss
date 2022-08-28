@@ -1,0 +1,102 @@
+.rotate-90 {
+    transform: rotate(90deg);
+  }
+  .profile_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+ 
+
+.profile_content {
+
+    --ion-background-color:#ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+    color:#353535;
+
+}
+.profile_content ion-item-divider{
+    font-size: medium;
+    color:#353535; 
+    background-color:#ffffff;
+    border-bottom: 1px solid #3535350f;
+    
+}
+.profile_content div{
+    margin: 10px ;
+}
+ion-icon {
+    font-size: 25px;
+    opacity: 0.8;
+    padding: 0 15px;
+  }
+.item_name{
+
+    background-color:#353535a9;
+    font-size: large;
+
+}
+
+.single_chat_1 , .single_chat_2{
+
+    padding: 10px;
+    margin: 2px !important;
+}
+
+.single_chat_1{
+    
+    background-color: #494848a9 !important;
+    // border-radius: 0 10px 10px 10px ;
+    border-radius: 10px 0 10px 10px ;
+    width: 75%;
+    float:right;
+
+   
+}
+
+.single_chat_2{
+     background-color: #f5ea5b !important;
+    border-radius: 0 10px 10px 10px ;
+    width: 75%;
+    float:left;
+    
+}
+.chat_footer ion-item {
+
+    --background: #ffffff !important;
+    border: 2px solid #353535a9;
+    width: 85%;
+    border-radius: 50px;
+    
+}
+
+.chat_footer .send-icon{
+    // margin-right:  10px;
+    margin-top:  5%;
+    
+}
+.chat_footer{
+    text-align: center;
+}
+.chat_footer ion-col{
+    display: flex;
+}
+.approve_reject_btn ion-button{
+    width: 95%;
+   
+}
+.approve_reject_btn {
+    text-align: center;
+}
+
+.message-container { 
+    // height: 736px;
+
+    margin : 0px !important;
+    overflow: auto; 
+    border-radius: 8px;
+  }
+
+  

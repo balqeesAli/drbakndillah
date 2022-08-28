@@ -1,0 +1,48 @@
+<ion-header class="Signup_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" defaultHref="/tabs/orders"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Rate'|translate}}</ion-title>
+  </ion-toolbar>
+  <div>
+    <img src="../../../assets/icon/logo.png" alt="">
+  </div>
+</ion-header>
+<ion-content  class="Signup_content">
+
+  <ion-list>
+    <ion-row> 
+
+      <ion-col size="12">
+        <p>{{'How was the service provided by' |translate}} {{orderData.mnickname}} ?<br><br>{{rate_value}}</p>
+      </ion-col>
+    </ion-row>
+      <ion-row>
+        <ion-col size="1">
+          <ion-icon color="primary" size="large" name="star-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          <ion-range min="0" max="10" [(ngModel)]="rate_value" color="secondary">
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">10</ion-label>
+          </ion-range>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon color="primary" size="large" name="star"></ion-icon>
+        </ion-col>
+      </ion-row>
+      
+    
+    </ion-list>
+    
+    
+  <div class="Term_condition_label" >
+   <ion-button (click)="SendRating()"  size="default" expand="block"  shape="round">
+      {{'Send Rating'|translate}} 
+    </ion-button>
+ 
+  </div>
+    
+
+</ion-content>

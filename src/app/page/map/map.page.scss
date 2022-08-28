@@ -1,0 +1,145 @@
+#map{
+    height: 100%;
+    }
+
+.popup_mark_details{
+    background-color: #AAA9A9;
+    border: 3px solid yellow;
+    padding: 5px;
+    margin: 10px;
+    color: black;
+    border-radius: 10px;
+    width: 95%;
+    font-size: large;
+
+
+
+}
+.detailsDiv{
+  
+    position: absolute;
+    bottom: 5%;
+    right: 0;
+    left: 0;
+}
+
+.containsAllDivs{
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+
+}
+
+#content{
+    background-color: #AAA9A9;
+    border: 2px solid #fbf696;
+    padding: 0;
+    margin: 0;
+    color: white;
+    width: 90%;
+
+
+}
+#content img{
+    border-radius: 30px;
+}
+
+.upperPart{
+
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+}
+
+.add_div{
+    width: 95%;
+    margin-top: 10px;
+    
+
+}
+
+.add_div img{
+
+    height: 120px;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #353535;
+    object-fit:cover;
+   
+}
+
+.filtration_chip{
+    width: 100%;
+    overflow-y: scroll;
+     display: flex;
+}
+
+.filtration_chip div ion-chip{
+    
+    margin:5px; width:120px;
+    background-color:#353535;
+    color: yellow;
+   
+
+} 
+.filtration_card{
+background-color: #fbf696;
+}
+
+.filtration_card ion-label{
+    display: block;
+    margin: 0 20px;
+    font-size: medium;
+    color: #353535;
+
+ }
+
+ .filtration_card img{
+    border: 1px solid #353535;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+ }
+ .offer-cost{
+    //  display: inline-block;
+    position: relative;
+ }
+.offer-cost div{
+    background-color: #3535355e;
+    color: yellow;
+    width: 30%;
+    border-radius: 50px;
+    padding: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.offer-cost div ion-icon{
+    color: yellow !important;
+    margin:  0px 0px;
+    display: inline-block;
+}
+
+.infowindowBTN{
+    display: inline-flex;
+}
+.price{
+    
+    background-color: #DAD25B;
+    border-radius: 30px;
+    color: #7B7A7A;;
+    text-align: center;
+    font-size: small;
+
+
+}
+.price ion-icon{
+     
+    color: #7B7A7A !important;
+
+
+}

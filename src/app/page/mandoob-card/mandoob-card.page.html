@@ -1,0 +1,25 @@
+<ion-header class="mandoobcard_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="tabs/profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{'Mandoob Card'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mandoobcard">
+    <ion-card>
+      <img src="../../../assets/icon/logo.png" alt="">
+
+      <h3>{{'Mandoob Card'|translate}}</h3>
+      <!-- <h4>{{'Drbak Ndillah Company'|translate}}</h4><br> -->
+
+      <h5>{{UserName_en}}</h5>
+      <h5>{{UserName_ar}}</h5>
+
+      <h5>{{'Expiry Date'|translate}} {{packageExpiryDate}}</h5>
+
+    </ion-card>
+  </div>
+</ion-content>

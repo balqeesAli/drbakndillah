@@ -1,0 +1,22 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button tab="profile">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>{{'profile'|translate}}</ion-label>
+    </ion-tab-button>
+    <ion-tab-button  *ngIf="HasLogin != 0" tab="chat">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>{{'chat'|translate}}</ion-label>
+      <!-- <ion-badge>0</ion-badge> -->
+    </ion-tab-button>
+    <ion-tab-button *ngIf="HasLogin != 0" tab="orders">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>{{'orders'|translate}}</ion-label>
+      <!-- <ion-badge>0</ion-badge> -->
+    </ion-tab-button>
+    <ion-tab-button tab="map">
+      <ion-icon name="location"></ion-icon>
+      <ion-label>{{'map'|translate}}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

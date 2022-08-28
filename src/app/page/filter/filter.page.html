@@ -1,0 +1,85 @@
+ 
+<ion-header class="additem_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{'Filter' |translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="additem_content">
+  <div class="add-img">
+    <img src="../../../assets/icon/logo.png" alt="">
+  </div>
+
+  <div> 
+    <ion-list>
+      <div align="center">  
+
+      </div>
+
+      <ion-item lines="none">
+        <!-- <ion-label> {{'Goverate'|translate}}</ion-label> -->
+        <ion-icon slot="start" name="trending-down"></ion-icon>
+        <ion-select multiple="false" [(ngModel)]="distance" interface="action-sheet"
+          [placeholder]="'Select Distance'|translate" (ionChange)="governateIdSelected($event)">
+           
+        <ion-select-option [value]="5">{{'0 - 5 KM' |translate}} </ion-select-option>
+
+        <ion-select-option [value]="5-15">{{'5 - 15 KM' |translate}} </ion-select-option>
+
+        <ion-select-option [value]="15-30">{{'15 - 30 KM' |translate}} </ion-select-option>
+
+        <ion-select-option [value]="30">{{'above 30 KM' |translate}} </ion-select-option>
+
+        
+        </ion-select>
+      </ion-item>
+      
+        
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-usd"></ion-icon>
+        <ion-input type="text" [(ngModel)]="mincost" [placeholder]="'Deliver Cost (min)'|translate" aria-required="please added" ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-usd"></ion-icon>
+        <ion-input type="text" [(ngModel)]="maxcost" [placeholder]="'Deliver Cost (max)'|translate"></ion-input>
+      </ion-item>
+
+
+      <!-- //////////////////////////////// -->
+
+
+
+      <ion-item lines="none">
+        <!-- <ion-label> {{'Goverate'|translate}}</ion-label> -->
+        <ion-icon slot="start" name="business"></ion-icon>
+        <ion-select multiple="false" [(ngModel)]="Governate_id" interface="action-sheet"
+          [placeholder]="'Select Delivered to Goverate'|translate" (ionChange)="governateIdSelected($event)">
+          <ion-select-option *ngFor="let governate of governateArr " [value]="governate">{{applang == 'ar' ?
+            governate.Name_ar : governate.Name_en }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <!-- <ion-label> {{'Goverate'|translate}}</ion-label> -->
+        <ion-icon slot="start" name="business"></ion-icon>
+        <ion-select multiple="false" [(ngModel)]="City_id" interface="action-sheet"
+          [placeholder]="'Select Delivered to  City'|translate" (ionChange)="cityIdSelected($event)">
+          <ion-select-option *ngFor="let city of cityArr " [value]="city">  {{applang == 'ar' ? city.Name_ar : city.Name_en }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+ 
+    </ion-list>
+    <ion-button  (click)="filterMarker()" expand="block" color="primary" shape="round">
+      {{'Filter'|translate}}
+    </ion-button>
+  </div>
+
+</ion-content>
+ 

@@ -1,0 +1,36 @@
+<ion-header class="profile_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" defaultHref="tabs/map"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Drbak Ndillah'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile_content">
+
+ <div class="add-img">
+   <img [src]="AddDetails.Image" alt="">
+ </div>
+  
+ <div class="add-contant"> 
+
+ <div>
+
+  <h3 align="center">
+    
+  {{applang == 'ar' ? AddDetails.Title_ar : AddDetails.Title_en }}
+
+</h3>
+
+  {{applang == 'ar' ? AddDetails.Description_ar : AddDetails.Description_en }}
+
+ </div>
+
+ 
+ <ion-button (click)="moveToPage(AddDetails.URL_link)" expand="block"  shape="round">
+   {{'Click Here'|translate}}
+ </ion-button>
+</div>
+
+</ion-content>

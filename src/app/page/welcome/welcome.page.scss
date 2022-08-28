@@ -1,0 +1,43 @@
+
+.welcome_page{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+    
+}
+.welcome_page ion-slides{
+margin: auto;
+margin-top: 30% !important;
+}
+
+.welcome_page ion-slide {
+padding: 40px 10px;
+display: block;
+}
+
+.welcome_page ion-slide  img{
+height: 200px  !important;
+width: 200px  !important;
+
+margin-bottom: 60px  !important; 
+
+}
+.welcome_page ion-slide ion-label{
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 20px  !important;
+    
+
+}
+
+.welcome_footer{
+    margin: 0 !important;
+    padding: 10px !important;
+    background-color:#353535;
+    font-size: xx-large;
+    font-weight:bold;
+    text-align: end;
+
+
+}

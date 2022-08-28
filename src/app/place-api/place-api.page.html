@@ -1,0 +1,35 @@
+<ion-header> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY">
+  </script>
+</ion-header>
+
+<ion-content>
+<!-- example-app.html -->
+<google-map height="100%"
+            width="750px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)"
+            (mapMousemove)="move($event)"
+            (mapRightclick)="removeLastMarker()">
+  <map-marker #marker
+              *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"
+              (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-info-window>Info Window content</map-info-window>
+</google-map>
+<div class="mylocation">
+<div> {{'Click to Select your location'|translate}} </div>
+<!-- <div>Latitude: {{SelectedLocation.Latitude}}</div>
+<div>Longitude: {{SelectedLocation.Longitude}}</div> -->
+<div> {{SelectedLocation.Selected_address}}</div>
+  
+<ion-button (click)="closeModal()" expand="block"  shape="round">
+  {{'Select Location'|translate}}
+</ion-button>
+<!-- <ion-button (click)="closeModal()">Close Modal</ion-button> -->
+
+
+</div>
+</ion-content>  

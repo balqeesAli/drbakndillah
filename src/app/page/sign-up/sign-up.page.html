@@ -1,0 +1,131 @@
+<ion-header class="Signup_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" defaultHref="welcome-language"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Sign Up'|translate}}</ion-title>
+  </ion-toolbar>
+  <div>
+    <img src="../../../assets/icon/logo.png" alt="">
+  </div>
+</ion-header>
+<ion-content  class="Signup_content">
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="person"></ion-icon>
+      <ion-input type="text"  [(ngModel)]="usersData.Name_ar"  [placeholder]="'Your Name (Arabic)'|translate"></ion-input>
+    </ion-item> 
+
+    
+    
+    
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="people"></ion-icon>
+      <ion-input type="text" [(ngModel)]="usersData.Family_name_ar"   [placeholder]="'Family Name (Arabic)'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="person"></ion-icon>
+      <ion-input type="text" [(ngModel)]="usersData.Name_en"   [placeholder]="'Your Name (English)'|translate"></ion-input>
+    </ion-item> 
+    
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="people"></ion-icon>
+      <ion-input type="text" [(ngModel)]="usersData.Family_name_en"   [placeholder]="'Family Name (English)'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="mail"></ion-icon>
+      <ion-input type="text" [(ngModel)]="usersData.Email"   [placeholder]="'Email Address'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="call"></ion-icon>
+      <ion-input type="Number"  [(ngModel)]="usersData.Phone_no"   [placeholder]="'Phone Number'|translate"></ion-input>
+      <!-- <ion-input type="text"  width="10%" [(ngModel)]="usersData.Country_code"   [placeholder]="'Phone Number'|translate" disabled></ion-input> -->
+      
+    </ion-item> 
+     
+
+    <ion-item lines="none">
+      <ion-label>{{'Country'|translate}}</ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <ion-select *ngFor="let country of countryArr " value="Country" multiple="false" interface="action-sheet" [(ngModel)]="usersData.Country_id"  (ionChange)="countryCode(country)"   [placeholder]="'Select Country'|translate">
+        <ion-select-option  [value]="country.Id">{{applang == 'ar' ? country.Name_ar : country.Name_en }} </ion-select-option> 
+        <!-- <ion-select-option [value]="'Country_option'|translate">{{'Country_option'|translate}}</ion-select-option>  -->
+      </ion-select>
+    </ion-item>
+    
+
+    
+    <ion-item lines="none">
+      <ion-label> {{'Goverate'|translate}}</ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <!-- <ion-select *ngFor="let governate of governateArr "   multiple="false" [(ngModel)]="usersData.City_id"   [placeholder]="'Select Goverate'|translate"> -->
+        <ion-select   multiple="false" [(ngModel)]="usersData.Governate_id"  interface="action-sheet"  [placeholder]="'Select Goverate'|translate" (ionChange)="governateIdSelected($event)" >
+        <ion-select-option   *ngFor="let governate of governateArr " [value]="governate.Id" >{{applang == 'ar' ? governate.Name_ar : governate.Name_en }} </ion-select-option> 
+        <!-- <ion-select-option value="Al hail">Al hail</ion-select-option>  -->
+      </ion-select>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-label>{{'City'|translate}} </ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <ion-select value="city" multiple="false" [(ngModel)]="usersData.City_id" interface="action-sheet"  [placeholder]="'Select city'|translate">
+        <ion-select-option   *ngFor="let city of cityArr " [value]="city.Id"  (ionChange)="cityIdSelected(city.Id)"  >{{applang == 'ar' ? city.Name_ar : city.Name_en }} </ion-select-option> 
+      </ion-select>
+   </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="lock-closed"></ion-icon>
+      <ion-input type="password" [(ngModel)]="usersData.Password"   [placeholder]="'password'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="lock-closed"></ion-icon>
+      <ion-input type="password"  [(ngModel)]="usersData.com_Password"   [placeholder]="'confirm password'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none"  (click)="presentModal()" >
+      <ion-icon slot="start"  name="location"></ion-icon> 
+     <div>
+       {{'Click to Enter your address on the map'|translate}}<br>
+        {{userlocation}}
+      
+     </div>
+    
+    </ion-item> 
+
+    </ion-list>
+    
+    
+  <div class="Term_condition_label" >
+    <ion-row>
+      <ion-col size="2">
+
+    <ion-checkbox  [(ngModel)]="checkTerms" ></ion-checkbox>
+    
+      </ion-col>
+    
+      <ion-col size="10"> 
+    <p [routerLink]="['/terms-conditions']" >{{'By click on T&C'|translate}}</p>
+      </ion-col>
+    </ion-row>
+   <br><br>
+    <ion-button  (click)="SignUpClick()" size="default" expand="block"  shape="round">
+      {{'Sign Up'|translate}} 
+    </ion-button>
+
+    <ion-button [routerLink]="['/sign-in']" size="default"  expand="block" fill="outline" shape="round">
+      {{'Sign In'|translate}}
+    </ion-button>
+
+    <ion-button (click)="forgotpassword()"  size="default"  expand="block" fill="clear"   shape="round">
+       {{'forgot password'|translate}}
+    </ion-button>
+
+  </div>
+    
+
+</ion-content>

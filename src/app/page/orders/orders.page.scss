@@ -1,0 +1,73 @@
+.orders_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+ 
+
+.orders_content {
+
+    --ion-background-color:#ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+    color:#353535;
+
+}
+
+.itemDetails{
+    font-size: larger;
+    margin-bottom: 20px !important;
+
+}
+.MandoobName{
+    font-weight: 1200;
+   
+}
+.itemRating{
+font-size: medium;
+}
+.itemDateTime{
+    font-size: larger;
+}
+.orders_content .pending{
+ background-color: #F3E834;
+}
+
+.orders_content .approved{
+    background-color: #A7FDA4;
+   }
+   .orders_content ion-button{
+       padding: 0px;
+   }
+.orders_content ion-card{
+ 
+    border: 3px solid #353535;
+    border-radius: 15px;
+     
+}
+
+.orders_content ion-card ion-col{
+  
+    font-size: 16px;
+}
+
+
+ion-icon {
+    font-size: 25px;
+    opacity: 0.8;
+  }
+
+.orders_footer ion-button {
+    margin: 20px;
+    
+}
+
+
+ .noorderdiv{
+     text-align: center;
+     margin: auto;
+     padding-top: 20%;
+     color: #353535bd;
+     
+ }

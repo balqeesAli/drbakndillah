@@ -1,0 +1,81 @@
+<ion-header class="profile_header ion-no-border">
+  <ion-toolbar>
+    <ion-title  color="secondary" > {{'My Profile'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile_content">
+   
+   
+  <ion-list>
+    <ion-item-divider *ngIf="viewAddnewItem == 1 && HasLogin != 0" [routerLink]="['/add-item']"  >
+      <ion-label>{{'Add New Item'|translate}}</ion-label>
+      <!-- <ion-icon name="chevron-back"></ion-icon>en
+      <ion-icon name="chevron-forward"></ion-icon> ar -->
+ 
+    </ion-item-divider>
+    
+    <ion-item-divider  *ngIf="HasLogin != 0"   [routerLink]="['/post-add']" >
+      <ion-label>{{'Post your add with us'|translate}}</ion-label> 
+    </ion-item-divider>
+
+    <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/all-packages']">
+      <ion-label>{{'All Packages'|translate}} </ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/my-packages']">
+      <ion-label>{{'My Packages'|translate}}</ion-label>
+    </ion-item-divider>
+
+    <!-- <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/my-details']">
+      <ion-label>{{'My Detail'|translate}}</ion-label>
+    </ion-item-divider> -->
+    
+    <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/order-history']">
+      <ion-label>{{'Orders History'|translate}}</ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/notification']">
+      <ion-badge *ngIf="unreadnotification != 0" style="margin: 0 10px;" slot="end">{{unreadnotification}}</ion-badge>
+      <ion-label>{{'Notification'|translate}}</ion-label>
+    </ion-item-divider>
+
+ 
+    <ion-item-divider  *ngIf="viewMandoobCard == 1 && HasLogin != 0" [routerLink]="['/mandoob-card']">
+      <ion-label>{{'Mandoob Card'|translate}}</ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="ChangeLanguage()">
+      <ion-label>{{'Language'|translate}}</ion-label>
+    </ion-item-divider>
+
+    
+    <ion-item-divider [routerLink]="['/terms-conditions']">
+      <ion-label>{{'Terms & Conditions'|translate}} </ion-label>
+    </ion-item-divider>
+
+    <!-- <ion-item-divider [routerLink]="['/contact-us']">
+      <ion-label>{{'Contact Us'|translate}}</ion-label>
+    </ion-item-divider> -->
+
+
+    <ion-item-divider *ngIf="HasLogin != 0" [routerLink]="['/reset-password']">
+      <ion-label>{{'Reset Password'|translate}}</ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="DeleteAccount()">
+      <ion-label>{{'DeleteAccount'|translate}}</ion-label>
+    </ion-item-divider>
+
+
+    <ion-item-divider *ngIf="HasLogin != 0" (click)="Logout()">
+      <ion-label>{{'Logout'|translate}}</ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider *ngIf="HasLogin == 0"  [routerLink]="['/sign-in']" >
+      <ion-label>{{'Sign In'|translate}}</ion-label>
+    </ion-item-divider>
+
+  </ion-list> 
+  
+</ion-content>

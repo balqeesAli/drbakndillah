@@ -1,0 +1,157 @@
+<ion-header class="additem_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{'Edit Item / Passenger' |translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="additem_content">
+  <div> 
+    <ion-list>
+      <div align="center">
+        <!-- <ion-icon width="90%" height="200px"  name="cloud-upload"></ion-icon> -->
+        <!-- <img class="uploadIMG" src="../../../assets/icon/uploadIcon.png" alt=""> -->
+        <div>
+          <div>
+
+            <!-- <ion-label> {{'Click to Upload Car ID Card'|translate}} </ion-label> -->
+            <div align="center">
+              <!-- <img src="../../../assets/icon/car_card_id.png" width="90%" height="200px"  alt="">
+    <img class="uploadIMG"  *ngIf='IdCardImageView == 1'  src="../../../assets/icon/uploadIcon.png" width="90%" height="200px"  alt="">
+  <div  *ngIf='IdCardImageView == 0' >
+    <ion-img class="uploadIMG" *ngFor="let file of images; let i = index" [src]="file.data" width="90%" height="200px" ></ion-img>
+  </div> -->
+
+
+              <!-- <div (click)="selectImagefromphone()">
+                <div align="center">
+                   <img class="uploadIMG" [src]="IdCardImage" width="100%" height="200px" alt="">
+
+                </div>
+
+              </div> -->
+ 
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <ion-radio-group name="auto" (ionChange)="radioChecked()" [(ngModel)]="item.type">
+        <ion-list-header>
+          <ion-label>{{Type|translate}} </ion-label>
+        </ion-list-header>
+
+        <ion-row>
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label>{{'Item' |translate}}</ion-label>
+              <ion-radio value="item"></ion-radio>
+            </ion-item>
+
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label>{{'Passenger' |translate}}</ion-label>
+              <ion-radio value="passenger"></ion-radio>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <!-- Item Name (Arabic)
+        Item Name (English) -->
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-input type="text" [(ngModel)]="itemData.Title_ar" [placeholder]="inputItemName_ar" aria-required="please added" ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-input type="text" [(ngModel)]="itemData.Title_en" [placeholder]="inputItemName_en"></ion-input>
+      </ion-item>
+
+
+      <!-- //////////////////////////////// -->
+
+
+
+      <ion-item lines="none">
+        <!-- <ion-label> {{'Goverate'|translate}}</ion-label> -->
+        <ion-icon slot="start" name="business"></ion-icon>
+        <ion-select multiple="false" [(ngModel)]="itemData.Governate_id" interface="action-sheet"
+          [placeholder]="'Select Delivered to Goverate'|translate" (ionChange)="governateIdSelected($event)">
+          <ion-select-option *ngFor="let governate of governateArr " [value]="governate.Id">{{applang == 'ar' ?
+            governate.Name_ar : governate.Name_en }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none">
+        <!-- <ion-label>{{'City'|translate}} </ion-label> -->
+        <ion-icon slot="start" name="business"></ion-icon>
+        <ion-select value="city" multiple="false" [(ngModel)]="itemData.City_id" interface="action-sheet"
+          [placeholder]="'Select Delivered to  City'|translate">
+          <ion-select-option *ngFor="let city of cityArr " [value]="city.Id" (ionChange)="cityIdSelected(city.Id)">
+            {{applang == 'ar' ? city.Name_ar : city.Name_en }} </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-usd"></ion-icon>
+        <ion-input type="number" [(ngModel)]="itemData.Max_price_delivery" [placeholder]="'Price Delivery'|translate">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="calendar"></ion-icon>
+        <ion-datetime [(ngModel)]="itemData.Maximin_date" [placeholder]="'Maximum Date'|translate"
+          display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="time"></ion-icon>
+        <ion-datetime [(ngModel)]="itemData.Maximin_time" [placeholder]="'Maximum Time'|translate"
+          display-format="HH:mm"></ion-datetime>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="alert-circle"></ion-icon>
+        <ion-textarea [(ngModel)]="itemData.Other_note" [placeholder]="'Other note'|translate"></ion-textarea>
+      </ion-item>
+
+
+      <ion-item lines="none" (click)="presentModal()">
+        <ion-icon slot="start" name="location"></ion-icon>
+        <div>
+          {{'Click to Enter your address on the map'|translate}}<br>
+          {{userlocation}}
+
+        </div>
+      </ion-item>
+
+
+    </ion-list>
+    <ion-button (click)="Upload()" expand="block" color="primary" shape="round">
+      {{'Add'|translate}}
+    </ion-button>
+  </div>
+
+</ion-content>
+
+
+<!-- <ion-footer class="additem_footer ion-no-border" >
+  <ion-toolbar>
+    <ion-button  [routerLink]="['/tabs/map']" size="default" expand="block"  shape="round">
+      {{'Go To Home'|translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer> -->

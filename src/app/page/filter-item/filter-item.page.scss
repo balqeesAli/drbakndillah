@@ -1,0 +1,89 @@
+.filter_item_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+
+.filtration_chip{
+    width: 100%;
+    overflow-y: scroll;
+     display: flex;
+}
+
+.filtration_chip div ion-chip{
+    
+    margin:5px; width:110px;
+    background-color:#353535;
+    color: yellow;
+   
+
+} 
+.filtration_card{
+background-color: #fbf696;
+}
+
+.filtration_card ion-label{
+    display: block;
+    margin: 0 20px;
+    font-size: medium;
+    color: #353535;
+
+ }
+
+ .filtration_card img{
+    border: 1px solid #353535;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+ }
+ .offer-cost{
+    //  display: inline-block;
+    position: relative;
+ }
+.offer-cost div{
+    background-color: #3535355e;
+    color: yellow;
+    width: 30%;
+    border-radius: 50px;
+    padding: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.offer-cost div ion-icon{
+    color: yellow !important;
+    margin:  0px 0px;
+    display: inline-block;
+}
+
+
+.offer-cost_ar{
+    //  display: inline-block;
+    position: relative;
+ }
+.offer-cost_ar div{
+    background-color: #3535355e;
+    color: yellow;
+    width: 30%;
+    border-radius: 50px;
+    padding: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+.offer-cost_ar div ion-icon{
+    color: yellow !important;
+    margin:  0px 0px;
+    display: inline-block;
+}
+
+.noorderdiv{
+    text-align: center;
+    margin: auto;
+    padding-top: 20%;
+    color: #353535bd;
+    
+}

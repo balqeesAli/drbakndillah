@@ -1,0 +1,100 @@
+<ion-header class="profile_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="tabs/chat"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary" *ngIf="AppUser == chatUserDetails.oid"> {{chatUserDetails.mnickname}}</ion-title>
+
+    <ion-title color="secondary" *ngIf="AppUser != chatUserDetails.oid"> {{chatUserDetails.oname_ar}} _ {{chatUserDetails.oname_en}}</ion-title>
+
+  </ion-toolbar>
+  <div class="item_name">
+    <ion-row>
+      <ion-col size="2">
+        <img [src]="chatUserDetails.iimage" alt="">
+      </ion-col>
+      <ion-col size="10" style="padding: 20px;"> {{applang == 'ar' ? chatUserDetails.ititle_ar : chatUserDetails.ititle_en }}  </ion-col>
+    </ion-row>
+  </div>
+</ion-header>
+
+
+<ion-content class="profile_content">
+ 
+  <div class="d-flex flex-column" style="maring: 0 !important;">
+    <div  [style.height]= "mesaageconentHeight" class="  message-container" #messageContainer>
+      <div class="message" *ngFor="let message of MyChatArr">
+        <div class="badge rouned-pill bg-light text-dark p-3 mt-1 mb-1">
+          <div  [ngClass]="  (message.Isadmin == 0 ) ?  'single_chat_1': 'single_chat_2'"  lines="none"  >
+            <ion-label>
+              <p style="color: black;" >{{message.Text}}</p>
+              <img *ngIf="message.Image != 'https://drbakndillah.com/Api/uploads/'" [src]="message.Image" alt="" style="height: 200px; width: 200px;"> 
+              <p>{{message.Sysdate}}</p>
+            </ion-label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container row">
+      <form [formGroup]="frmMessage" (ngSubmit)="send()">
+      </form>        
+    </div>
+  </div>
+  
+  
+  
+  </ion-content>
+
+
+<!-- <ion-content class="profile_content"  [scrollEvents]="true" 
+(ionScrollStart)="logScrollStart($event)" 
+(ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd($event)">
+
+  <div>
+    <div>
+    </div>
+    <ion-list>  
+      <ion-row>
+        <ion-col size="12" *ngFor="let i of MyChatArr">  
+          <ion-item   [ngClass]="  (AppUser == i.User_id ) ?  'single_chat_1': 'single_chat_2'"  lines="none"  >
+              <p style="color: black;" >{{i.Text}}</p>
+              <img *ngIf="i.Image != 'https://drbakndillah.com/Api/uploads/'" [src]="i.Image" alt="" style="height: 200px; width: 200px;"> 
+              <p>{{i.Sysdate}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </div>
+
+</ion-content> -->
+<ion-footer class="ion-no-border chat_footer">
+  <ion-toolbar>
+    <div *ngIf=" (AppUser == chatUserDetails.oid) && (chatUserDetails.ostatus_en) == 'new' "  >
+      <ion-row class="approve_reject_btn">
+        <ion-col size="6">
+          <ion-button (click)="changeState('approved'  ,  'معتمد' )" expand="block" shape="round">
+            {{'Approved_chat'|translate}}
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button (click)="changeState('rejected'  , 'مرفوص')" expand="block" shape="round">
+            {{'Reject'|translate}}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row>
+      <ion-col size="12" >
+        <ion-item lines="none">
+          <ion-input type="text" [placeholder]="'Type Your Message Here ...'|translate"  [(ngModel)]="chattext"></ion-input>
+
+          <ion-icon (click)="selectImagefromphone()" slot="end" color="primary" size="large" name="attach"></ion-icon>
+        </ion-item>
+          <ion-icon   size="large"   color="primary" class="send-icon" name="send" (click)="Upload_text()" ></ion-icon>
+         
+        </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

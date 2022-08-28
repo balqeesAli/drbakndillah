@@ -1,0 +1,75 @@
+<ion-header class="Signup_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" defaultHref="welcome-language"></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'My Detail'|translate}}</ion-title>
+  </ion-toolbar>
+  <div>
+    <img src="../../../assets/icon/logo.png" alt="">
+  </div>
+</ion-header>
+<ion-content  class="Signup_content">
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="person"></ion-icon>
+      <ion-input type="text" [placeholder]="'Your Name'|translate"></ion-input>
+    </ion-item> 
+    
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="person"></ion-icon>
+      <ion-input type="text" [placeholder]="'Family Name'|translate"></ion-input>
+    </ion-item> 
+
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="call"></ion-icon>
+      <ion-input type="text" [placeholder]="'Phone Number'|translate"></ion-input>
+    </ion-item> 
+    
+
+    <ion-item lines="none">
+      <ion-label>{{'Country'|translate}}</ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <ion-select value="Country" multiple="false" [placeholder]="'Select Country'|translate">
+        <ion-select-option [value]="'Country_option'|translate">{{'Country_option'|translate}}</ion-select-option> 
+      </ion-select>
+    </ion-item>
+  
+    <ion-item lines="none">
+      <ion-label> {{'Goverate'|translate}}</ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <ion-select value="Goverate" multiple="false" [placeholder]="'Select Goverate'|translate">
+        <ion-select-option [value]="'Goverate_option'|translate">{{'Goverate_option'|translate}}</ion-select-option> 
+        <ion-select-option value="Dhofar">Dhofar</ion-select-option> 
+        <ion-select-option value="Buraymi">Buraymi</ion-select-option> 
+      </ion-select>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-label>{{'City'|translate}} </ion-label>
+      <ion-icon slot="start"  name="business"></ion-icon>
+      <ion-select value="city" multiple="false" [placeholder]="'Select city'|translate">
+        <ion-select-option [value]="'city_option'|translate">{{'city_option'|translate}}</ion-select-option> 
+        <ion-select-option value="Al hail">Al hail</ion-select-option> 
+      </ion-select>
+   </ion-item> 
+   
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="location"></ion-icon> 
+      <ion-label>{{'Click to Enter your address on the map'|translate}}</ion-label>
+    </ion-item> 
+
+    </ion-list>
+    
+    
+  <div class="Term_condition_label" >
+   <ion-button   size="default" expand="block"  shape="round">
+      {{'Confirm'|translate}} 
+    </ion-button>
+ 
+  </div>
+    
+
+</ion-content>

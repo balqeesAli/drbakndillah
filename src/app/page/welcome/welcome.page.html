@@ -1,0 +1,20 @@
+<ion-content class="welcome_page">
+
+  
+
+  <ion-slides mode="ios" pager="true"  [options]="sliderOptions" >
+    <ion-slide color="secondary" *ngFor="let feature of AppFeatures" >
+      <img [src]="feature.img" alt="">
+      <br>
+     <ion-label color="secondary">{{feature.Title_en}}</ion-label>
+     <br><br>
+     <ion-label color="secondary">{{feature.Title_ar}}</ion-label>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer class="welcome_footer ion-no-border">
+  <ion-text [routerLink]="['/welcome-language']" color="secondary">
+    <h1>SKIP</h1>
+  </ion-text>
+</ion-footer>

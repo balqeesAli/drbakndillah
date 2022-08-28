@@ -1,0 +1,126 @@
+<ion-header class="filter_item_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="tabs/map"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{'Items for Deliver'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="filtration_chip" >
+    <div>
+      <ion-chip (click)="filterMarker('nearest')" color="primary" mode="ios" outline="true">
+        <ion-label>{{'Nearest'|translate}}</ion-label>
+      </ion-chip>
+    </div>
+
+    <div>
+      <ion-chip   (click)="filterMarker('heighest')"  color="primary" mode="ios" outline="true">
+        <ion-label>{{'Highest price'|translate}}</ion-label>
+      </ion-chip>
+    </div>
+
+    <div>
+      <ion-chip  (click)="filterMarker('lowest')" color="primary" mode="ios" outline="true">
+        <ion-label>{{'Lowest price'|translate}}</ion-label>
+      </ion-chip>
+    </div>
+
+    <div>
+      <ion-chip (click)="specifyFilter()" color="primary" mode="ios" outline="true"    >
+        <ion-label>{{'Specify'|translate}}</ion-label>
+      </ion-chip>
+    </div>
+
+  </div>
+
+
+  <ion-card class="filtration_card" *ngFor='let i of markers' >
+
+    <ion-card-content > 
+      
+      <!-- Image: "https://drbakndillah.com/Api/uploads/applogo.png"
+Item_status: "new"
+Lat: "23.59425495870947"
+Log: "58.445696400378274"
+Max_price_delivery: "2"
+Maximin_date: "2021-12-23"
+Maximin_time: "08:31:00"
+Other_note: "my note is nothing"
+Title_ar: "لابتوب"
+Title_en: "laptop"
+Type: "item"
+User_id: "35"
+city_name_ar: "ولاية مسقط"
+city_name_en: "Wilayat Muscat"
+governate_name_ar: "محافظة مسقط"
+governate_name_en: "Muscat"
+itemID: "36"
+token: "cRDqEWOrQFqK8LeaxYPsix:APA91bFm-oR4YdawkxGBS-_RsUr4DP-twSbE9jvoJ7Tlgs9ATfGw5koxL60VDzLgt9sX0goR3uhN5oqMPTDiKlso1JwkMOQ8kt05SbIa2rlnS16lLO_kLyTIH7phG6D2u0sAZRV2iDXc" -->
+
+
+      <ion-row>
+        <ion-col size="3" style="margin:0 !important; padding:0 !important;">
+          <div align="right">
+            <img [src]="i.Image" alt="">
+          </div>
+        </ion-col>
+        <ion-col size="9"  style="margin:0 !important; padding:0 !important;">
+
+          <div [ngClass]="offercostStyle?'offer-cost':'offer-cost_ar'"  >
+            <ion-label>{{applang == 'ar' ? i.Title_ar : i.Title_en }} </ion-label>
+            
+            <div align="center"> <p> 
+              <!-- <ion-icon slot="start" name="logo-usd"></ion-icon> -->
+               {{i.Max_price_delivery}} {{'OMR'|translate}} </p> </div> </div> <div>
+            <ion-label>{{'Deliver before'|translate}}: {{i.Maximin_date}}</ion-label>
+          </div>
+
+          <div>
+            <ion-label>{{'at'|translate}} : {{i.Maximin_time}}</ion-label>
+          </div>
+          <div>
+            <ion-label>{{'For from you'|translate}} {{i.distance}} KM</ion-label>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-button expand="block" (click)="DirectionClick(i.Lat , i.Log )"  shape="round">
+            {{'Direction'|translate}}
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-button expand="block" (click)="AcceptItem( i )" shape="round">
+            {{'Accept'|translate}}
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-button expand="block" (click)="viewItemDetails(i)"  shape="round">
+            {{'View'|translate}}
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+<div class="noorderdiv" *ngIf="markers.length == 0">
+  <h3> {{ 'There are no order to delivery' |translate}}</h3>
+  </div>
+  
+  
+</ion-content>
+
+
+<!-- reify:ionic-angular: timing reifyNode:node_modules/@angu -->

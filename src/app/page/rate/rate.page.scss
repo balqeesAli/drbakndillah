@@ -1,0 +1,38 @@
+.Signup_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+.Signup_header div{
+text-align: center;
+background-color:#353535;
+border-radius: 0 0 30px 30px;
+}
+.Signup_header img{
+    height: 150px;
+    width: 200px;
+   
+}
+
+.Signup_content {
+
+    --ion-background-color:#ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+
+}
+.Signup_content ion-row{
+    text-align: center;
+    padding: 10px;
+    padding-top: 50px;
+}
+.Signup_content ion-row ion-icon{
+    padding-top: 10px;
+}
+
+.Term_condition_label{
+    margin: 0 20px  ;
+    font-size: small;
+    padding-bottom: 15px;
+}

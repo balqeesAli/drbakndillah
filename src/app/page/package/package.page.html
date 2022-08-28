@@ -1,0 +1,151 @@
+<ion-header class="Packages_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{ PackageDetails.name |translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Packages_content">
+  <div>
+    <h3>{{PackageDetails.name |translate}}</h3>
+
+    <ion-list>
+      <ion-radio-group name="auto" (ionChange)="radioGroupChange($event)">
+
+        <ion-label>{{'Select the period' |translate}} 
+          <ion-text color="danger">*</ion-text></ion-label>
+
+        <ion-row>
+          <ion-col size="6" *ngFor="let i of PackageDetails.peroid">
+            <ion-item lines="none">
+              <ion-label>{{ i.name |translate}}</ion-label>
+              <ion-radio [value]="i"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-radio-group>
+
+      <ion-label>{{'Package Price'|translate}} {{price}} </ion-label>
+
+      <ion-item lines="none" *ngIf="PackageDetails.company_name == 1">
+        <ion-icon slot="start" name="business"></ion-icon>
+
+      <ion-label><ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [placeholder]="'Your Name / Company / Shop Name'|translate"
+          [(ngModel)]="UserPackageDetails.Shop_company_name"></ion-input>
+      </ion-item>
+
+
+
+
+      <ion-item lines="none" *ngIf="PackageDetails.nickname == 1">
+        <ion-icon slot="start" name="person"></ion-icon>
+
+      <ion-label><ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [placeholder]="'Your Nick Name'|translate" [(ngModel)]="UserPackageDetails.Nick_name">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="calendar"></ion-icon>
+
+      <ion-label><ion-text color="danger">*</ion-text></ion-label>
+        <ion-datetime [placeholder]="'Start Date'|translate" display-format="YYYY-MM-DD"
+          [min]="today| date: 'yyyy-MM-dd'" [(ngModel)]="UserPackageDetails.Start_date"></ion-datetime>
+      </ion-item>
+      <!-- {{UserPackageDetails.Start_date | date: 'yyyy-MM-dd'}} -->
+      <!-- {{today| date: 'yyyy-MM-dd' }} -->
+
+
+      <div *ngIf="PackageDetails.IDCardIMG == 1">
+        <div (click)="selectImagefromphone()">
+
+          <ion-label> {{'Click to Upload Car ID Card'|translate}} </ion-label>
+          <div align="center">
+            <!-- <img src="../../../assets/icon/car_card_id.png" width="90%" height="200px"  alt=""> -->
+            <img [src]="IdCardImage" width="90%" height="200px" alt="">
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- <ion-button (click)="Upload()" expand="block"   shape="round">
+  Click me
+</ion-button> -->
+
+
+      <div *ngIf="PackageDetails.nationallity == 1">
+        <ion-checkbox [(ngModel)]="UserPackageDetails.nationallityClicked"></ion-checkbox> {{'I am
+        Omani'|translate}}<br>
+        <ion-text color="danger">*{{'Only Omani people can subscribe in this package'|translate}}</ion-text>
+        <br>
+        <ion-text color="danger">*{{'Taxi and special package required'|translate}}</ion-text>
+
+      </div>
+    </ion-list>
+    <br>
+    <ion-button (click)="Upload('free')" expand="block" color="primary" shape="round">
+      {{'Continue for free'|translate}}
+    </ion-button>
+
+    <ion-button (click)="Upload('paid')" expand="block" color="primary" shape="round">
+      {{'Continue'|translate}}
+    </ion-button>
+
+  
+    <!-- WILL BE DELETED  -->
+    <!-- <ion-button  [routerLink]="['/payment-failed']" expand="block"  color="primary" shape="round">
+    Falid Payment
+  </ion-button> -->
+
+
+    <ion-button [routerLink]="['/all-packages']" expand="block" fill="outline" shape="round">
+      {{'All Packages'|translate}}
+    </ion-button>
+
+  </div>
+  <div>
+
+
+
+  </div>
+
+</ion-content>
+<!-- 
+<ion-footer class="Packages_footer ion-no-border" >
+  <ion-toolbar>
+    <ion-button  [routerLink]="['/tabs/map']"  size="default" expand="block"  shape="round">
+      {{'Go To Home'|translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer> -->
+
+<!-- 
+<ion-content>
+  <ion-button (click)="Service_popOver($event)"  shape="round">
+    Service
+  </ion-button>
+  
+  <ion-button (click)="Mandoob_popOver($event)"  shape="round">
+    Mandoob 
+  </ion-button>
+
+  <ion-button (click)="Taxi_popOver($event)"  shape="round">
+    Taxi
+  </ion-button>
+
+  <ion-button (click)="special_popOver($event)"  shape="round">
+    special
+  </ion-button>
+
+  <br><br><br>
+
+  
+
+</ion-content> -->

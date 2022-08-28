@@ -1,0 +1,73 @@
+<ion-header class="profile_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" defaultHref="tabs/map"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="secondary"> {{'My Chat'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile_content" >
+
+  <div>
+    <ion-list>
+
+      <!-- {{'Add New Item'|translate}} -->
+      <!-- <ion-item [routerLink]="['/single-chat']" >
+      <ion-avatar slot="start">
+        <img src="../../../assets/icon/logo.png" />
+      </ion-avatar>
+      <ion-badge slot="end">2</ion-badge>
+      <ion-label>{{'Drbak Ndillah'|translate}}</ion-label>
+    </ion-item> -->
+
+
+    
+      <nav  [routerLink]="['/single-chat-admin']">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="../../../assets/icon/logo.png" />
+          </ion-avatar>
+          <!-- <ion-badge slot="end">2</ion-badge> -->
+          <ion-badge *ngIf="unreadAdminMsg != 0" slot="end"> {{unreadAdminMsg}}</ion-badge>
+          
+          <ion-label>{{'Drbak Ndillah'|translate}}</ion-label>
+        </ion-item>
+      </nav>
+
+ 
+      
+      <ion-item *ngFor="let i of ChatListArray" (click)="moveToChat(i)" style="--background: white !important;">
+        <ion-avatar slot="start">
+          <img [src]="i.iimage" />
+        </ion-avatar> 
+            <ion-badge *ngIf="i.unreadData != 0" slot="end"> {{i.unreadData}}</ion-badge>
+          
+
+        <ion-label>  
+          <b *ngIf="AppUser != i.mid"> {{i.oshop}} </b>
+          <b *ngIf="AppUser == i.oid"> {{i.mnickname}}</b>
+         
+          <br>
+          {{applang == 'ar' ? i.ititle_ar : i.ititle_en }}
+          <br> 
+          <ion-text color="danger" style="font-size: small;" >
+            {{ 'order' |translate}}
+            {{applang == 'ar' ? i.ostatus_ar : i.ostatus_en }}  
+            
+            
+          </ion-text>
+          
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+
+  <div class="noorderdiv" *ngIf="ChatListArray.length == 0">
+    <h3> {{ 'There Is No Chat Yet' |translate}}</h3>
+   </div>
+   
+
+</ion-content>

@@ -1,0 +1,217 @@
+<ion-header class="orders_header ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-buttons  slot="start">
+      <ion-back-button color="secondary" defaultHref="welcome-language"></ion-back-button>
+    </ion-buttons> -->
+    <ion-title  color="secondary" > {{'My Orders'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="orders_content">
+    
+<ion-segment [(ngModel)]="SelectedOrder" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="new" class="pending">
+    <ion-label>{{'pending'|translate}}</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="approved" class="approved">
+    <ion-label>{{'approved'|translate}}</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="Completed">
+    <ion-label>{{'Completed'|translate}}</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+<div *ngIf="SelectedOrder == 'new'">
+<ion-card class="pending" *ngFor='let i of OrderArray' >
+  
+  <ion-card-content>
+
+    <ion-row>
+      <ion-col size="3">
+        <img [src]="i.iimage" alt="">
+      </ion-col>
+      <ion-col size="5"> 
+        <ion-card-subtitle *ngIf="AppUser == i.mid" class="itemDetails"><b class="MandoobName">  {{applang == 'ar' ? i.mname_ar : i.mname_en }} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+        <ion-card-subtitle  *ngIf="AppUser == i.oid" class="itemDetails"><b class="MandoobName">  {{i.mnickname}} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+      </ion-col>
+      
+
+            
+          
+
+      <ion-col size="4" >
+        <div *ngIf="i.rate != 0 " class="itemRating">{{i.rate}} / 10 <ion-icon size="small" color="primary" name="star" (click)="Service_popOver($event)" ></ion-icon></div>
+        <div *ngIf="i.approvedorder != 0 "   class="itemRating">{{i.approvedorder}} {{'Approved Order'|translate}}</div>
+      </ion-col>
+      <ion-col size="12" class="itemDateTime">
+        {{'Deliver before'|translate}} {{i.idate}} {{'at'|translate}} {{i.itime}}
+        
+      </ion-col>
+
+      <ion-col size="3"  *ngIf="AppUser == i.oid">
+        <ion-button  (click)="changeState('approved'  , i , 'معتمد' )" color="primary" expand="block"   >
+          <b> {{'Approve' |translate}}</b>
+         </ion-button>
+      </ion-col>
+
+      <ion-col size="3"  *ngIf="AppUser == i.oid">
+        <ion-button (click)="changeState('rejected'  , i , 'مرفوص')" color="primary" expand="block"  >
+          <b> {{'Reject' |translate}}</b>
+         </ion-button>
+      </ion-col>
+
+      <ion-col size="4" *ngIf="AppUser == i.mid" >
+        <ion-button (click)="changeState('deleted'  , i  , 'محذوف' )" color="primary" expand="block"   >
+          <b> {{'Delete' |translate}}</b>
+         </ion-button>
+      </ion-col>
+      
+
+
+      <ion-col size="3">
+        <!-- <ion-button (click)="onClick()" color="primary" expand="block"  shape="round">
+          <b> {{'Chat' |translate}}</b>
+         </ion-button> --> 
+         <ion-button  (click)="DirectionClick(i.ilat , i.ilog )"  color="primary" >
+          <ion-icon color="secondary" slot="icon-only" name="location"></ion-icon>
+         
+         </ion-button>
+      </ion-col>
+ 
+
+      <ion-col size="3">
+        <!-- <ion-button (click)="onClick()" color="primary" expand="block"  shape="round">
+          <b> {{'Chat' |translate}}</b>
+         </ion-button> -->
+         <ion-button (click)="moveToChat(i)" >
+          <ion-icon color="secondary"  slot="icon-only"name="chatbubble"></ion-icon>
+         
+         </ion-button>
+      </ion-col>
+
+    </ion-row>
+  
+  </ion-card-content>
+</ion-card>
+</div>
+  
+  
+<div *ngIf="SelectedOrder == 'approved'">
+   
+<ion-card class="approved" *ngFor='let i of OrderArray' >
+  
+  <ion-card-content>
+
+    <ion-row>
+      <ion-col size="3">
+        <img [src]="i.iimage" alt="">
+      </ion-col>
+      <ion-col size="5"> 
+        <ion-card-subtitle *ngIf="AppUser == i.mid" class="itemDetails"><b class="MandoobName">  {{applang == 'ar' ? i.mname_ar : i.mname_en }} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+        <ion-card-subtitle  *ngIf="AppUser == i.oid" class="itemDetails"><b class="MandoobName">  {{i.mnickname}} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+      </ion-col> 
+
+      <ion-col size="4" >
+        <div *ngIf="i.rate != 0 " class="itemRating">{{i.rate}} / 10 <ion-icon size="small" color="primary" name="star" (click)="Service_popOver($event)" ></ion-icon></div>
+        <div *ngIf="i.approvedorder != 0 "   class="itemRating">{{i.approvedorder}} {{'Approved Order'|translate}}</div>
+      </ion-col>
+      <ion-col size="12" class="itemDateTime">
+        {{'Deliver before'|translate}} {{i.idate}} {{'at'|translate}} {{i.itime}}
+        
+      </ion-col>
+  
+      <ion-col size="6"  *ngIf="AppUser == i.mid" >
+        <ion-button (click)="changeState('Completed' , i , 'مكتمل' )" color="primary" expand="block"   >
+          <b> {{'Complete' |translate}}</b>
+         </ion-button>
+      </ion-col>
+
+      <ion-col size="3">
+        <!-- <ion-button (click)="onClick()" color="primary" expand="block"  shape="round">
+          <b> {{'Chat' |translate}}</b>
+         </ion-button> --> 
+         <!-- <ion-button (click)="DirectionClick(i.ilat , i.ilat )"  >
+           <ion-icon color="secondary" slot="icon-only" name="location"></ion-icon>
+         </ion-button> -->
+
+         <ion-button  (click)="DirectionClick(i.ilat , i.ilog )"  color="primary"  >
+          <ion-icon color="secondary" slot="icon-only" name="location"></ion-icon>
+         
+         </ion-button>
+      </ion-col>
+ 
+
+      <ion-col size="3">
+        <!-- <ion-button (click)="onClick()" color="primary" expand="block"  shape="round">
+          <b> {{'Chat' |translate}}</b>
+         </ion-button> -->
+         <ion-button (click)="moveToChat(i)" >
+          <ion-icon color="secondary" slot="icon-only" name="chatbubble"></ion-icon>
+         
+         </ion-button>
+      </ion-col>
+        
+         
+  
+      </ion-row>
+    
+    </ion-card-content>
+  </ion-card>
+  </div>
+
+  <div *ngIf="SelectedOrder == 'Completed'">
+       
+<ion-card class="Completed" *ngFor='let i of OrderArray' >
+  
+  <ion-card-content>
+
+    <ion-row>
+      <ion-col size="3">
+        <img [src]="i.iimage" alt="">
+      </ion-col>
+      <ion-col size="5"> 
+        <ion-card-subtitle *ngIf="AppUser == i.mid" class="itemDetails"><b class="MandoobName">  {{applang == 'ar' ? i.mname_ar : i.mname_en }} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+        <ion-card-subtitle  *ngIf="AppUser == i.oid" class="itemDetails"><b class="MandoobName">  {{i.mnickname}} </b> <br>  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }} </ion-card-subtitle>
+      </ion-col> 
+
+      <ion-col size="4" >
+        <div *ngIf="i.rate != 0 " class="itemRating">{{i.rate}} / 10 <ion-icon size="small" color="primary" name="star" (click)="Service_popOver($event)" ></ion-icon></div>
+        <div *ngIf="i.approvedorder != 0 "   class="itemRating">{{i.approvedorder}} {{'Approved Order'|translate}}</div>
+      </ion-col>
+      <ion-col size="12" class="itemDateTime">
+        {{'Deliver before'|translate}} {{i.idate}} {{'at'|translate}} {{i.itime}}
+        
+      </ion-col>
+    
+
+          <ion-col size="4"  *ngIf="AppUser == i.oid" >
+            <ion-button (click)="MovetoRate(i)"  color="primary" expand="block"  >
+              <b> {{'Rate' |translate}}</b>
+             </ion-button>
+          </ion-col>
+     
+          <ion-col size="3">
+            <!-- <ion-button (click)="onClick()" color="primary" expand="block"  shape="round">
+              <b> {{'Chat' |translate}}</b>
+             </ion-button> -->
+             <ion-button (click)="moveToChat(i)"  >
+              <ion-icon color="secondary"  slot="icon-only" name="chatbubble"></ion-icon>
+             
+             </ion-button>
+          </ion-col>
+    
+        </ion-row>
+      
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+
+    <div class="noorderdiv" *ngIf="OrderArray.length == 0">
+     <h3> {{ 'There Is No Order Yet ' |translate}}</h3>
+    </div>
+    
+</ion-content>
+

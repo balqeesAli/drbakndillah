@@ -1,0 +1,35 @@
+.Terms_conditions_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+.Terms_conditions_header div{
+text-align: center;
+background-color:#353535;
+border-radius: 0 0 30px 30px;
+}
+.Terms_conditions_header img{
+    height: 150px;
+    width: 200px;
+   
+}
+
+.Terms_condition_content{
+
+    --ion-background-color:#ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.Term_condition_label{
+    margin: 0 20px  ;
+    font-size: large;
+    padding-bottom: 15px;
+    padding-top: 20px !important;
+
+    text-align: justify;
+
+}

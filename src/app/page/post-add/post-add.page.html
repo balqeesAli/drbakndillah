@@ -1,0 +1,97 @@
+<ion-header class="additem_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" ></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Post Advertisement'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="additem_content">
+  <div>
+    <ion-list> 
+      <div  align="center" (click)="selectImagefromphone()"> 
+ 
+        <img  style="border: 2px solid black; border-radius: 10px;" [src]="IdCardImage" width="90%" height="150px"  alt="">
+      </div>
+
+        <!-- Item Name (Arabic)
+        Item Name (English) -->
+  
+        <ion-item lines="none">
+          <ion-icon slot="start"  name="text"></ion-icon>
+          <ion-label><ion-text color="danger">*</ion-text></ion-label>
+          <ion-input type="text" [placeholder]="'Title (Arabic)'|translate"  [(ngModel)]="usersData.name_ar" ></ion-input>
+        </ion-item> 
+       
+        
+        <ion-item lines="none">
+          <ion-icon slot="start"  name="text"></ion-icon>
+          <ion-label><ion-text color="danger">*</ion-text></ion-label>
+          <ion-input type="text" [placeholder]="'Title (English)'|translate"  [(ngModel)]="usersData.name_en" ></ion-input>
+        </ion-item> 
+  
+  
+        <ion-item lines="none">
+  
+          <ion-icon  slot="start" name="alert-circle"></ion-icon>
+          <ion-label><ion-text color="danger">*</ion-text></ion-label>
+          <ion-textarea  [placeholder]="'Description (Arabic)'|translate"  [(ngModel)]="usersData.discription_ar"></ion-textarea>
+        </ion-item>
+              
+        
+        <ion-item lines="none">
+        
+          <ion-icon  slot="start" name="alert-circle"></ion-icon>
+          <ion-label><ion-text color="danger">*</ion-text></ion-label>
+          <ion-textarea  [placeholder]="'Description (English)'|translate"  [(ngModel)]="usersData.discription_en" ></ion-textarea>
+        </ion-item>
+               
+      
+    
+      <ion-item lines="none"> 
+        <ion-icon slot="start"  name="today"></ion-icon> 
+        <ion-select  multiple="false"   interface="action-sheet" [(ngModel)]="seleted_days" (ionChange)="Set_price_days()"  [placeholder]="'Select Add Period'|translate">
+          <ion-select-option value="15">15 {{'days'|translate}}</ion-select-option> 
+          <ion-select-option value="30">30 {{'days'|translate}}</ion-select-option> 
+          <ion-select-option value="180">180 {{'days'|translate}}</ion-select-option> 
+          <ion-select-option value="360">360 {{'days'|translate}}</ion-select-option> 
+        </ion-select>
+      </ion-item> 
+   
+    <ion-item lines="none"> 
+      <ion-icon slot="start"  name="calendar"></ion-icon>
+      <ion-datetime  [placeholder]="'Start Date'|translate" display-format="DD.MM.YYYY" [min]="today"  [(ngModel)]="usersData.date" ></ion-datetime>
+    </ion-item>
+
+     
+    <ion-item lines="none">
+        
+      <ion-icon  slot="start" name="link"></ion-icon>
+      <ion-label><ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" [placeholder]="'Website Link'|translate"   [(ngModel)]="usersData.link" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none"> 
+      <ion-icon slot="start"  name="logo-usd"></ion-icon>
+      
+      <ion-label style="font-size: medium;">{{'Adds cost'|translate}}  {{seleted_days_price}} {{'OMR for'|translate}} {{seleted_days}} {{'days'|translate}}</ion-label>
+    </ion-item>
+  
+    </ion-list>
+    <ion-button  (click)="Upload()" expand="block"  color="primary" shape="round">
+      {{'Send'|translate}} 
+    </ion-button>
+  </div>
+
+</ion-content>
+
+
+<ion-footer class="additem_footer ion-no-border" >
+  <ion-toolbar>
+    <ion-button  [routerLink]="['/tabs/map']" size="default" expand="block"  shape="round">
+      {{'Go To Home'|translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

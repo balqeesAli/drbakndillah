@@ -1,0 +1,154 @@
+<ion-header class="all-Packages_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" ></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Packages'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="all-Packages_content">
+    <div>
+      
+      <ion-card>
+        
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="10">
+              <ion-card-title>{{'Service Requester Package' |translate}} </ion-card-title> 
+            </ion-col>
+            <ion-col size="1.5">
+              <ion-icon size="large" name="help-circle" (click)="Service_popOver($event)" ></ion-icon>
+            </ion-col>
+          </ion-row>
+ 
+           
+          <ion-row>
+            <ion-col size="5.5"><b>{{'Once' |translate}}</b></ion-col>
+            <ion-col size="5.5"><b>0.200 </b>OMR</ion-col>
+          </ion-row>
+          <ion-row>
+           <ion-col size="5.5"><b>{{'Monthly'|translate}}</b> </ion-col>
+           <ion-col size="5.5"><b>1.000 </b>OMR</ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col size="5.5"><b>{{'Yearly'|translate}}</b></ion-col>
+           <ion-col size="5.5"><b>5.000 </b>OMR</ion-col>
+         </ion-row>
+          <ion-button (click)="MoveToPackagePage_ServiceRequester()" color="secondary" expand="block"  shape="round">
+           <b> {{'Subscribe' |translate}}</b>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    
+    
+    
+      <ion-card>
+        
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="10">
+              <ion-card-title>{{'Mandoob Package' |translate}} </ion-card-title> 
+            </ion-col>
+            <ion-col size="1.5">
+              <ion-icon size="large" name="help-circle" (click)="Mandoob_popOver($event)" ></ion-icon>
+            </ion-col>
+          </ion-row>
+ 
+           
+          <ion-row>
+            <ion-col size="5.5"><b>{{'Once' |translate}}</b></ion-col>
+            <ion-col size="5.5"><b>0.200 </b>OMR</ion-col>
+          </ion-row>
+          <ion-row>
+           <ion-col size="5.5"><b>{{'Monthly'|translate}}</b> </ion-col>
+           <ion-col size="5.5"><b>1.000 </b>OMR</ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col size="5.5"><b>{{'Yearly'|translate}}</b></ion-col>
+           <ion-col size="5.5"><b>5.000 </b>OMR</ion-col>
+         </ion-row>
+          <ion-button (click)="MoveToPackagePage_Mandoob()" color="secondary" expand="block"  shape="round">
+           <b> {{'Subscribe' |translate}}</b>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="10">
+              <ion-card-title>{{'Taxi Package' |translate}} </ion-card-title> 
+            </ion-col>
+            <ion-col size="1.5">
+              <ion-icon size="large" name="help-circle" (click)="Taxi_popOver($event)" ></ion-icon>
+            </ion-col>
+          </ion-row>
+ 
+           
+          <ion-row>
+            <ion-col size="5.5"><b>{{'Daily' |translate}}</b></ion-col>
+            <ion-col size="5.5"><b>0.500 </b>OMR</ion-col>
+          </ion-row>
+          <ion-row>
+           <ion-col size="5.5"><b>{{'Monthly'|translate}}</b> </ion-col>
+           <ion-col size="5.5"><b>5.000 </b>OMR</ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col size="5.5"><b>{{'Yearly'|translate}}</b></ion-col>
+           <ion-col size="5.5"><b>50.000 </b>OMR</ion-col>
+         </ion-row>
+          <ion-button (click)="MoveToPackagePage_Taxi()" color="secondary" expand="block"  shape="round">
+           <b> {{'Subscribe' |translate}}</b>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        
+        <ion-card-content>
+
+          <ion-row>
+            <ion-col size="10">
+              <ion-card-title>{{'Special Package (All of above)' |translate}} </ion-card-title> 
+            </ion-col>
+            <ion-col size="1.5">
+              <ion-icon size="large" name="help-circle" (click)="special_popOver($event)" ></ion-icon>
+            </ion-col>
+          </ion-row>
+ 
+           
+          <ion-row>
+            <ion-col size="5.5"><b>{{'Daily' |translate}}</b></ion-col>
+            <ion-col size="5.5"><b>1.000 </b>OMR</ion-col>
+          </ion-row>
+          <ion-row>
+           <ion-col size="5.5"><b>{{'Monthly'|translate}}</b> </ion-col>
+           <ion-col size="5.5"><b>5.000 </b>OMR</ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col size="5.5"><b>{{'Yearly'|translate}}</b></ion-col>
+           <ion-col size="5.5"><b>50.000 </b>OMR</ion-col>
+         </ion-row>
+          <ion-button  (click)="MoveToPackagePage_Special()" color="secondary" expand="block"  shape="round">
+           <b> {{'Subscribe' |translate}}</b>
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  
+</ion-content>
+
+
+<ion-footer class="all-Packages_footer ion-no-border" >
+  <ion-toolbar>
+    <ion-button  [routerLink]="['/tabs/map']" size="default" expand="block"  shape="round">
+      {{'Go To Home'|translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

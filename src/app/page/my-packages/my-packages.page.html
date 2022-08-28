@@ -1,0 +1,46 @@
+<ion-header class="all-Packages_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" ></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'My Packages'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="all-Packages_content">
+    <div>
+      <ion-button  [routerLink]="['/all-packages']"  size="large" expand="block"  shape="round">
+        {{'Subscribe to new package'|translate}}
+      </ion-button>
+    
+    
+      <ion-card class="My_package_card" *ngFor="let i of MyPackageArr"> 
+        
+        <ion-card-content>
+
+          <ion-card-title>{{applang == 'ar' ? i.Package_name_ar : i.Package_name_en }}</ion-card-title> <br>
+          <ion-label>{{'Status'|translate}} : {{applang == 'ar' ? i.Status_Package_ar : i.Status_Package_en }}</ion-label>
+          <ion-label>{{'Price'|translate}} :   {{i.Package_price}} {{'OMR'|translate}}</ion-label>
+          <ion-label>{{'Type'|translate}} : {{applang == 'ar' ? i.Package_period_ar : i.Package_period_en }}</ion-label>
+          <ion-label>{{'Start Date'|translate}} : {{i.Start_date}}</ion-label>
+          <ion-label>{{'End Date'|translate}} : {{i.End_date}}</ion-label>
+          <ion-label *ngIf="i.Shop_company_name != ''" >{{'Name'|translate}}:  {{i.Shop_company_name}}</ion-label>
+          <ion-label *ngIf="i.Nick_name != ''" >{{'Nick Name'|translate}} :  {{i.Nick_name}}</ion-label>
+          <ion-label *ngIf="i.Car_card_Id_img != 'https:\/\/drbakndillah.com\/Api\/uploads\/'" >{{'Car Card ID '|translate}}: </ion-label>
+         <div align="right" *ngIf="i.Car_card_Id_img != 'https:\/\/drbakndillah.com\/Api\/uploads\/'" >
+          <img [src]="i.Car_card_Id_img" alt="">
+         </div>
+
+        </ion-card-content>
+      </ion-card>
+    
+    </div>
+    <div *ngIf="MyPackageArr.length == 0"  align="center" style="color:grey; margin-top:40%; font-size:large;" >
+
+      <p>{{"You don't have any package yet"|translate}}</p>
+
+    </div> 
+
+
+  
+</ion-content>

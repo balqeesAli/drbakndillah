@@ -1,0 +1,156 @@
+<ion-content>
+ 
+
+  <ion-skeleton-text *ngIf="viewMap == 1" animated style="width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; right: 0; left: 0;"></ion-skeleton-text>
+  
+  <div #map id="map"></div>
+  <div class="upperPart"> 
+    <div align="center">
+      <div class="add_div">
+
+        <ion-slides mode="ios" pager="ios" [options]="sliderOptions">
+          <ion-slide  *ngFor='let i of AddsArray' >
+            <img [src]="i.Image" alt=""   (click)="movetoAddPAde(i)">
+          </ion-slide>
+        </ion-slides>
+
+
+      </div>
+    </div>
+    <div class="filtration_chip" *ngIf="mandoobCard != 0  && HasLogin != 0 " >
+      <div>
+        <ion-chip (click)="filterMarker('nearest')" color="primary" mode="ios" outline="true">
+          <ion-label>{{'Nearest'|translate}}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div>
+        <ion-chip   (click)="filterMarker('heighest')"  color="primary" mode="ios" outline="true">
+          <ion-label>{{'Highest price'|translate}}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div>
+        <ion-chip  (click)="filterMarker('lowest')" color="primary" mode="ios" outline="true">
+          <ion-label>{{'Lowest price'|translate}}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div>
+        <ion-chip (click)="specifyFilter()" color="primary" mode="ios" outline="true"    >
+          <ion-label>{{'Specify'|translate}}</ion-label>
+        </ion-chip>
+      </div>
+
+    </div>
+
+
+  <div *ngIf="viewLoginBtn == 0" style=" width:70%; margin: auto; margin-top: 30%; ">
+    <ion-button   [routerLink]="['/sign-in']"   expand="block" shape="round">
+      {{'Sign In'|translate}}
+    </ion-button>
+    
+    <ion-button [routerLink]="['/sign-up']" expand="block" shape="round">
+      {{'Sign Up'|translate}}
+    </ion-button>
+    
+  </div>
+
+  </div>
+  
+
+  <!-- <div class="detailsDiv">
+    <div class="popup_mark_details" *ngIf="infoWindowView == 1">
+      <ion-row>
+        <ion-col size="3"> <img [src]="infoWindowDetails.image" alt=""></ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col size="8"> {{infoWindowDetails.title}}</ion-col>
+            <ion-col size="4" class="price"> 
+              {{infoWindowDetails.price}} {{'OMR'|translate}}
+            </ion-col>
+            <ion-col size="12"> {{'Deliver before'|translate}} {{infoWindowDetails.date}} {{'at'|translate}} {{infoWindowDetails.time}}</ion-col>
+          </ion-row>
+        </ion-col> 
+
+        <div class="infowindowBTN">
+
+          <ion-button size="small" id="directionclick" (click)="onClick()" expand="block" shape="round"
+            color="secondary">{{'Direction'|translate}}</ion-button>
+          <ion-button size="small" id="viewclick" (click)="onClick()" expand="block" shape="round" color="secondary">
+            {{'View'|translate}}</ion-button>
+          <ion-button size="small" id="editclick" (click)="onClick()" expand="block" shape="round" color="secondary">
+            {{'Edit'|translate}}</ion-button>
+          <ion-button size="small" id="deleteclick" (click)="onClick()" expand="block" shape="round" color="secondary">
+            {{'Delete'|translate}}</ion-button>
+          <ion-button size="small" id="deleteclick" (click)="onClick()" expand="block" shape="round" color="secondary">
+            {{'Accept'|translate}}</ion-button>
+          <ion-button size="small" id="deleteclick" (click)="onClick()" expand="block" shape="round" color="secondary">
+            {{'cancel'|translate}}</ion-button>
+
+        </div>
+ 
+      </ion-row>
+    </div>
+  </div> -->
+
+
+  
+  <div class="detailsDiv">
+    <div class="containsAllDivs" *ngIf="infoWindowView == 1" >
+
+      <div dir="ltr"  class="popup_mark_details"   *ngFor="let i of infoWindowDetails.data" >
+        <ion-row>
+          <ion-col size="3"> <img [src]="i.Image" alt=""></ion-col>
+          <ion-col size="9">
+            <ion-row>
+              <ion-col size="8">  {{applang == 'ar' ? i.Title_ar : i.Title_en }}   </ion-col>
+              <ion-col size="4" class="price">
+                <!-- <ion-icon name="logo-usd"></ion-icon> -->
+                {{i.Max_price_delivery}} {{'OMR'|translate}}
+              </ion-col>
+              <ion-col size="12"> {{'Deliver before'|translate}} {{i.Maximin_date}} <br> {{'at'|translate}} {{i.Maximin_time}}</ion-col>
+            </ion-row>
+          </ion-col>
+          <!-- <ion-col size="12"> <ion-button (click)="onClick()" expand="block" shape="round">Click me </ion-button> -->
+  
+          <div class="infowindowBTN">
+  
+            <ion-button size="small" id="directionclick" (click)="DirectionClick(i.Lat , i.Log )" expand="block" shape="round"
+              color="secondary">{{'Direction'|translate}}</ion-button>
+            <ion-button  size="small" id="viewclick" (click)="viewItemDetails(i)" expand="block" shape="round" color="secondary">
+              {{'View'|translate}}</ion-button>
+            <ion-button *ngIf='i.User_id == AppUser' size="small" id="editclick" (click)="editclick(i)" expand="block" shape="round" color="secondary">
+              {{'Edit'|translate}}</ion-button>
+            <ion-button *ngIf='i.User_id == AppUser'  size="small" id="deleteclick" (click)="DeleteItem(i.itemID)" expand="block" shape="round" color="secondary">
+              {{'Delete'|translate}}</ion-button>
+            <ion-button *ngIf='i.User_id != AppUser' size="small" id="deleteclick" (click)="AcceptItem( i )" expand="block" shape="round" color="secondary">
+              {{'Accept'|translate}}</ion-button>
+            <ion-button size="small" id="deleteclick" (click)="cancelClick()" expand="block" shape="round" color="secondary">
+              {{'cancel'|translate}}</ion-button>
+  
+          </div>
+  
+  
+  
+          <!-- <ion-button id="acceptclick" (click)="onClick()" expand="block" shape="round">accept</ion-button> -->
+  
+        </ion-row>
+      </div>
+
+    </div>
+   
+  </div>
+
+  <!-- <ion-item>
+    <ion-avatar slot="start">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-avatar>
+    <ion-label>
+      <ion-skeleton-text animated width="50%"></ion-skeleton-text>
+      <ion-skeleton-text animated width="80%"></ion-skeleton-text>
+    </ion-label>
+  </ion-item>
+  -->
+
+</ion-content>

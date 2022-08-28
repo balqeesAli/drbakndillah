@@ -1,0 +1,47 @@
+.add-img {
+    margin: 0;
+    pad: 0;
+}
+.add-img img{
+    // height: 190px;
+    width: 100%;
+    border-radius:  0  0 20px  20px ;
+    border: 0px solid #353535;
+    object-fit:contain;
+
+
+}
+.profile_header{
+
+    margin: 0 !important;
+    padding: 0 !important;
+    --ion-background-color:#353535;
+}
+ 
+.add-contant{
+    text-align: center !important;
+    text-align: justify;
+    text-transform: capitalize;
+}
+
+
+.add-contant ion-title{
+    padding: 20px;
+}
+
+
+.add-contant div{
+    margin:auto;
+    width: 90%;
+    padding: 16px;
+    text-align: justify;
+    background-color: #FAF6AD;
+    border-radius: 20px;
+    margin-bottom:10px;
+}
+
+.add-contant ion-button{
+   
+    width: 90%;
+    margin: auto;
+}

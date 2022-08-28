@@ -1,0 +1,60 @@
+<ion-header class="Signup_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" ></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Contact Us'|translate}}</ion-title>
+  </ion-toolbar>
+  <div>
+    <img src="../../../assets/icon/logo.png" alt="">
+  </div>
+</ion-header>
+<ion-content  class="Signup_content">
+
+  <ion-list>
+   
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="person"></ion-icon>
+      <ion-input type="text" [placeholder]="'Your Name'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="mail"></ion-icon>
+      <ion-input type="mail" [placeholder]="'Email Address'|translate"></ion-input>
+    </ion-item> 
+
+    <ion-item lines="none">
+      <ion-icon slot="start"  name="call"></ion-icon>
+      <ion-input type="number" [placeholder]="'Phone Number'|translate"></ion-input>
+    </ion-item> 
+ 
+    <ion-item lines="none"> 
+      <ion-icon slot="start"  name="text"></ion-icon>
+      <ion-select value="city" multiple="false"  interface="action-sheet" [placeholder]="'Topic'|translate">
+        <ion-select-option [value]="'suggestion'|translate">{{'suggestion'|translate}}</ion-select-option> 
+        <ion-select-option [value]="'complain'|translate">{{'complain'|translate}}</ion-select-option> 
+        <ion-select-option [value]="'other'|translate">{{'other'|translate}}</ion-select-option> 
+      </ion-select>
+   </ion-item> 
+
+
+
+  <ion-item lines="none">
+  
+    <ion-icon  slot="start" name="alert-circle"></ion-icon>
+    <ion-textarea  [placeholder]="'Type Your Message Here ...'|translate"></ion-textarea>
+  </ion-item>
+  
+    </ion-list>
+    
+    
+  <div class="Term_condition_label" >
+    <br><br>
+    <ion-button   size="default" expand="block"  shape="round">
+      {{'Send'|translate}} 
+    </ion-button>
+
+  </div>
+    
+
+</ion-content>

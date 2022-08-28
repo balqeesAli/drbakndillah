@@ -1,0 +1,50 @@
+<ion-header class="all-Packages_header ion-no-border">
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button color="secondary" ></ion-back-button>
+    </ion-buttons>
+    <ion-title  color="secondary" > {{'Orders History'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="all-Packages_content">
+    <div>
+
+    <ion-card class="My_package_card" *ngFor="let i of OrderHistoryArr"> 
+        
+      <ion-card-content>
+
+        <ion-row>
+          <ion-col size="3">
+            <div align="right">
+              <img [src]="i.iimage" alt="">
+             </div>
+          </ion-col>
+          <ion-col size="9">
+
+        <ion-label>{{'Mandoob Nickname'|translate}}:  {{i.mnickname}}</ion-label>
+        <ion-label>{{'Item Name'|translate}}:  {{applang == 'ar' ? i.ititle_ar : i.ititle_en }}</ion-label>
+        <ion-label>{{'Order Date'|translate}} : {{i.odatetime}}</ion-label>
+        <ion-label>{{'Status'|translate}} : {{applang == 'ar' ? i.ostatus_ar : i.ostatus_en }}</ion-label>
+
+          </ion-col>
+        </ion-row>  
+
+      </ion-card-content>
+    </ion-card>
+  
+     
+      <ion-row class="noitem" *ngIf="OrderHistoryArr.length == 0" >
+        <ion-col size="12">
+
+          <ion-label>{{'There is no order yet'|translate}}</ion-label>
+        </ion-col>
+      </ion-row>
+      
+
+
+    </div>
+  
+</ion-content>
+
+
